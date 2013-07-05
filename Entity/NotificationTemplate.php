@@ -4,36 +4,30 @@ namespace Galaxy\InfoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * NotificationTemplate
- */
+
 class NotificationTemplate
 {
+
     /**
      * @var integer
      */
-    private $id;
-    
+    protected $id;
     protected $incPoints;
     protected $incPointsActv;
     protected $incPointsProc;
     protected $incPointsMess;
-    
     protected $incOwnElem;
     protected $incOwnElemActv;
     protected $incOwnElemMess;
-    
     protected $incDurationMinElem;
     protected $incDurationMinElemActv;
     protected $incDurationMinElemMess;
     protected $incFlipAmount;
     protected $incFlipAmountActv;
     protected $incFlipAmountMess;
-    
     protected $superjumpAmount;
     protected $superjumpAmountActv;
     protected $superjumpAmountMess;
-    
     protected $incDurationAllElem;
     protected $incDurationAllElemActv;
     protected $incDurationAllElemMess;
@@ -41,26 +35,19 @@ class NotificationTemplate
     protected $decPointsActv;
     protected $decPointsProc;
     protected $decPointsMess;
-    
     protected $decFlipAmount;
     protected $decFlipAmountActv;
     protected $decFlipAmountMess;
-    
     protected $superjumpCancelActv;
     protected $superjumpCancelMess;
-    
     protected $activeCancelActv;
     protected $activeCancelMess;
-    
     protected $firstFlipperActv;
     protected $firstFlipperMess;
-    
     protected $blackPointActv;
     protected $blackPointMess;
-    
     protected $delElemGroupActv;
     protected $delElemGroupMess;
-    
     protected $decDurationAllElem;
     protected $decDurationAllElemActv;
     protected $decDurationAllElemMess;
@@ -74,7 +61,7 @@ class NotificationTemplate
     {
         return $this->id;
     }
-    
+
     public function getIncPoints()
     {
         return $this->incPoints;

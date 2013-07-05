@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
-  <entity name="Galaxy\InfoBundle\Entity\NotificationTemplate">
+  <mapped-superclass name="Galaxy\InfoBundle\Entity\NotificationTemplate" table="galaxy_notification_template">
     <id name="id" type="integer" column="id">
       <generator strategy="AUTO"/>
     </id>
@@ -56,5 +56,5 @@
     <field name="decDurationAllElem" type="integer" column="dec_duration_all_elem" nullable="true"/>
     <field name="decDurationAllElemActv" type="boolean" column="dec_duration_all_elem_actv" nullable="true"/>
     <field name="decDurationAllElemMess" type="text" column="dec_duration_all_elem_mess" nullable="true"/>
-  </entity>
+  </mapped-superclass>
 </doctrine-mapping>
