@@ -4,5 +4,57 @@
     <id name="id" type="integer" column="id">
       <generator strategy="AUTO"/>
     </id>
+    <field name="incPoints" type="integer" column="inc_points" nullable="true"/>
+    <field name="incPointsActv" type="boolean" column="inc_points_actv" nullable="true"/>
+    <field name="incPointsProc" type="boolean" column="inc_points_proc" nullable="true"/>
+    <field name="incPointsMess" type="text" column="inc_points_mess" nullable="true"/>
+    
+    <field name="incOwnElem" type="integer" column="inc_own_elem" nullable="true"/>
+    <field name="incOwnElemActv" type="boolean" column="inc_own_elem_actv" nullable="true"/>
+    <field name="incOwnElemMess" type="text" column="inc_own_elem_mess" nullable="true"/>
+    
+    <field name="incDurationMinElem" type="integer" column="inc_duration_min_elem" nullable="true"/>
+    <field name="incDurationMinElemActv" type="boolean" column="inc_duration_min_elem_actv" nullable="true"/>
+    <field name="incDurationMinElemMess" type="text" column="inc_duration_min_elem_mess" nullable="true"/>
+    
+    <field name="incFlipAmount" type="integer" column="next_flip_amount" nullable="true"/>
+    <field name="incFlipAmountActv" type="boolean" column="next_flip_amount_actv" nullable="true"/>
+    <field name="incFlipAmountMess" type="text" column="next_flip_amount_mess" nullable="true"/>
+    
+    <field name="superjumpAmount" type="integer" column="superjump_amount" nullable="true"/>
+    <field name="superjumpAmountActv" type="boolean" column="superjump_amount_actv" nullable="true"/>
+    <field name="superjumpAmountMess" type="text" column="superjump_amount_mess" nullable="true"/>
+    
+    <field name="incDurationAllElem" type="integer" column="inc_duration_all_elem" nullable="true"/>
+    <field name="incDurationAllElemActv" type="boolean" column="inc_duration_all_elem_actv" nullable="true"/>
+    <field name="incDurationAllElemMess" type="text" column="inc_duration_all_elem_mess" nullable="true"/>
+    
+    <field name="decPoints" type="integer" column="dec_points" nullable="true"/>
+    <field name="decPointsActv" type="boolean" column="dec_points_actv" nullable="true"/>
+    <field name="decPointsProc" type="boolean" column="dec_points_proc" nullable="true"/>
+    <field name="decPointsMess" type="text" column="dec_points_mess" nullable="true"/>
+    
+    <field name="decFlipAmount" type="integer" column="dec_flip_amount" nullable="true"/>
+    <field name="decFlipAmountActv" type="boolean" column="dec_flip_amount_actv" nullable="true"/>
+    <field name="decFlipAmountMess" type="text" column="dec_flip_amount_mess" nullable="true"/>
+    
+    <field name="superjumpCancelActv" type="boolean" column="superjump_cancel_actv" nullable="true"/>
+    <field name="superjumpCancelMess" type="text" column="superjump_cancel_mess" nullable="true"/>
+    
+    <field name="activeCancelActv" type="boolean" column="active_cancel_actv" nullable="true"/>
+    <field name="activeCancelMess" type="text" column="active_cancel_mess" nullable="true"/>
+    
+    <field name="firstFlipperActv" type="boolean" column="first_flipper_actv" nullable="true"/>
+    <field name="firstFlipperMess" type="text" column="first_flipper_mess" nullable="true"/>
+    
+    <field name="blackPointActv" type="boolean" column="black_point_actv" nullable="true"/>
+    <field name="blackPointMess" type="text" column="black_point_mess" nullable="true"/>
+    
+    <field name="delElemGroupActv" type="boolean" column="del_elem_group_actv" nullable="true"/>
+    <field name="delElemGroupMess" type="text" column="del_elem_group_mess" nullable="true"/>
+    
+    <field name="decDurationAllElem" type="integer" column="dec_duration_all_elem" nullable="true"/>
+    <field name="decDurationAllElemActv" type="boolean" column="dec_duration_all_elem_actv" nullable="true"/>
+    <field name="decDurationAllElemMess" type="text" column="dec_duration_all_elem_mess" nullable="true"/>
   </entity>
 </doctrine-mapping>
