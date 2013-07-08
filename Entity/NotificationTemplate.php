@@ -4,7 +4,9 @@ namespace Galaxy\InfoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-
+/**
+ * @ORM\MappedSuperclass
+ */
 class NotificationTemplate
 {
 

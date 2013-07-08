@@ -2,7 +2,7 @@
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
   <entity name="Galaxy\InfoBundle\Entity\Message" table="galaxy_message">
     
-    <field name="userId" type="integer" column="userId" nullable="true"/>
+    <field name="userId" type="integer" column="user_id" nullable="true"/>
     <field name="title" type="string" column="title" length="255" nullable="true"/>
     <field name="visible" type="boolean" column="visible" nullable="true"/>
     <field name="moderatorAccepted" type="boolean" column="moderator_accepted" nullable="true"/>
@@ -15,5 +15,8 @@
     <field name="seconds" type="integer" column="seconds" nullable="true"/>
     <field name="questions" type="array" column="questions" nullable="true"/>
     <field name="rightAnswer" type="integer" column="right_answer" nullable="true"/>
+    <lifecycle-callbacks>
+                <lifecycle-callback type="prePersist" method="setDate" />
+    </lifecycle-callbacks>
   </entity>
 </doctrine-mapping>

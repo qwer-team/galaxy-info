@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serializer>
+    <class name="Galaxy\InfoBundle\Entity\Message" exclusion-policy="none" >
+        <property name="userId" serialized-name="userId"/>
+        <property name="moderatorAccepted" serialized-name="moderatorAccepted"/>
+        <property name="jumpsToQuestion" serialized-name="jumpsToQuestion"/>
+        <property name="rightAnswer" serialized-name="rightAnswer"/>
+    </class>
+</serializer>

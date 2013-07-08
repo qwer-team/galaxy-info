@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serializer>
+    <class name="Galaxy\InfoBundle\Entity\NotificationTemplate" exclusion-policy="none" >
+        <property name="incPoints" serialized-name="incPoints"/>
+        <property name="incPointsActv" serialized-name="incPointsActv"/>
+        <property name="incPointsProc" serialized-name="incPointsProc"/>
+        <property name="incPointsMess" serialized-name="incPointsMess"/>
+        
+        <property name="incOwnElem" serialized-name="incOwnElem"/>
+        <property name="incOwnElemActv" serialized-name="incOwnElemActv"/>
+        <property name="incOwnElemMess" serialized-name="incOwnElemMess"/>
+        
+        <property name="incDurationMinElem" serialized-name="incDurationMinElem"/>
+        <property name="incDurationMinElemActv" serialized-name="incDurationMinElemActv"/>
+        <property name="incDurationMinElemMess" serialized-name="incDurationMinElemMess"/>
+        
+        <property name="incFlipAmount" serialized-name="incFlipAmount"/>
+        <property name="incFlipAmountActv" serialized-name="incFlipAmountActv"/>
+        <property name="incFlipAmountMess" serialized-name="incFlipAmountMess"/>
+        
+        <property name="superjumpAmount" serialized-name="superjumpAmount"/>
+        <property name="superjumpAmountActv" serialized-name="superjumpAmountActv"/>
+        <property name="superjumpAmountMess" serialized-name="superjumpAmountMess"/>
+        
+        <property name="incDurationAllElem" serialized-name="incDurationAllElem"/>
+        <property name="incDurationAllElemActv" serialized-name="incDurationAllElemActv"/>
+        <property name="incDurationAllElemMess" serialized-name="incDurationAllElemMess"/>
+        
+        <property name="decPoints" serialized-name="decPoints"/>
+        <property name="decPointsActv" serialized-name="decPointsActv"/>
+        <property name="decPointsProc" serialized-name="decPointsProc"/>
+        <property name="decPointsMess" serialized-name="decPointsMess"/>
+        
+        <property name="decFlipAmount" serialized-name="decFlipAmount"/>
+        <property name="decFlipAmountActv" serialized-name="decFlipAmountActv"/>
+        <property name="decFlipAmountMess" serialized-name="decFlipAmountMess"/>
+        
+        <property name="superjumpCancelActv" serialized-name="superjumpCancelActv"/>
+        <property name="superjumpCancelMess" serialized-name="superjumpCancelMess"/>
+        
+        <property name="activeCancelActv" serialized-name="activeCancelActv"/>
+        <property name="activeCancelMess" serialized-name="activeCancelMess"/>
+        <property name="firstFlipperActv" serialized-name="firstFlipperActv"/>
+        <property name="firstFlipperMess" serialized-name="firstFlipperMess"/>
+        
+        <property name="blackPointActv" serialized-name="blackPointActv"/>
+        <property name="blackPointMess" serialized-name="blackPointMess"/>
+        <property name="delElemGroupActv" serialized-name="delElemGroupActv"/>
+        <property name="delElemGroupMess" serialized-name="delElemGroupMess"/>
+        
+        <property name="decDurationAllElem" serialized-name="decDurationAllElem"/>
+        <property name="decDurationAllElemActv" serialized-name="decDurationAllElemActv"/>
+        <property name="decDurationAllElemMess" serialized-name="decDurationAllElemMess"/>
+    </class>
+</serializer>

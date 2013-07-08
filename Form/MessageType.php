@@ -11,57 +11,154 @@ class MessageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('incPoints')
-            ->add('incPointsActv')
-            ->add('incPointsProc')
-            ->add('incPointsMess')
-            ->add('incOwnElem')
-            ->add('incOwnElemActv')
-            ->add('incOwnElemMess')
-            ->add('incDurationMinElem')
-            ->add('incDurationMinElemActv')
-            ->add('incDurationMinElemMess')
-            ->add('incFlipAmount')
-            ->add('incFlipAmountActv')
-            ->add('incFlipAmountMess')
-            ->add('superjumpAmount')
-            ->add('superjumpAmountActv')
-            ->add('superjumpAmountMess')
-            ->add('incDurationAllElem')
-            ->add('incDurationAllElemActv')
-            ->add('incDurationAllElemMess')
-            ->add('decPoints')
-            ->add('decPointsActv')
-            ->add('decPointsProc')
-            ->add('decPointsMess')
-            ->add('decFlipAmount')
-            ->add('decFlipAmountActv')
-            ->add('decFlipAmountMess')
-            ->add('superjumpCancelActv')
-            ->add('superjumpCancelMess')
-            ->add('activeCancelActv')
-            ->add('activeCancelMess')
-            ->add('firstFlipperActv')
-            ->add('firstFlipperMess')
-            ->add('blackPointActv')
-            ->add('blackPointMess')
-            ->add('delElemGroupActv')
-            ->add('delElemGroupMess')
-            ->add('decDurationAllElem')
-            ->add('decDurationAllElemActv')
-            ->add('decDurationAllElemMess')
-            ->add('userId')
-            ->add('title')
-            ->add('visible')
-            ->add('moderatorAccepted')
-            ->add('theme')
-            ->add('age')
-            ->add('text')
-            ->add('image')
-            ->add('jumpsToQuestion')
-            ->add('date')
-            ->add('questions')
-            ->add('rightAnswer')
+            ->add('incPoints', 'integer', array(
+                'required' => false,
+            ))
+            ->add('incPointsActv', 'checkbox', array(
+                'required' => false,
+            ))
+            ->add('incPointsProc', 'checkbox', array(
+                'required' => false,
+            ))
+            ->add('incPointsMess', 'textarea', array(
+                'required' => false,
+            ))
+            ->add('incOwnElem', 'integer', array(
+                'required' => false,
+            ))
+            ->add('incOwnElemActv', 'checkbox', array(
+                'required' => false,
+            ))
+            ->add('incOwnElemMess', 'textarea', array(
+                'required' => false,
+            ))
+            ->add('incDurationMinElem', 'integer', array(
+                'required' => false,
+            ))
+            ->add('incDurationMinElemActv', 'checkbox', array(
+                'required' => false,
+            ))
+            ->add('incDurationMinElemMess', 'textarea', array(
+                'required' => false,
+            ))
+            ->add('incFlipAmount', 'integer', array(
+                'required' => false,
+            ))
+            ->add('incFlipAmountActv', 'checkbox', array(
+                'required' => false,
+            ))
+            ->add('incFlipAmountMess', 'textarea', array(
+                'required' => false,
+            ))
+            ->add('superjumpAmount', 'integer', array(
+                'required' => false,
+            ))
+            ->add('superjumpAmountActv', 'checkbox', array(
+                'required' => false,
+            ))
+            ->add('superjumpAmountMess', 'textarea', array(
+                'required' => false,
+            ))
+            ->add('incDurationAllElem', 'integer', array(
+                'required' => false,
+            ))
+            ->add('incDurationAllElemActv', 'checkbox', array(
+                'required' => false,
+            ))
+            ->add('incDurationAllElemMess', 'textarea', array(
+                'required' => false,
+            ))
+            ->add('decPoints', 'integer', array(
+                'required' => false,
+            ))
+            ->add('decPointsActv', 'checkbox', array(
+                'required' => false,
+            ))
+            ->add('decPointsProc', 'checkbox', array(
+                'required' => false,
+            ))
+            ->add('decPointsMess', 'textarea', array(
+                'required' => false,
+            ))
+            ->add('decFlipAmount', 'integer', array(
+                'required' => false,
+            ))
+            ->add('decFlipAmountActv', 'checkbox', array(
+                'required' => false,
+            ))
+            ->add('decFlipAmountMess', 'textarea', array(
+                'required' => false,
+            ))
+            ->add('superjumpCancelActv', 'checkbox', array(
+                'required' => false,
+            ))
+            ->add('superjumpCancelMess', 'textarea', array(
+                'required' => false,
+            ))
+            ->add('activeCancelActv', 'checkbox', array(
+                'required' => false,
+            ))
+            ->add('activeCancelMess', 'textarea', array(
+                'required' => false,
+            ))
+            ->add('firstFlipperActv', 'checkbox', array(
+                'required' => false,
+            ))
+            ->add('firstFlipperMess', 'textarea', array(
+                'required' => false,
+            ))
+            ->add('blackPointActv', 'checkbox', array(
+                'required' => false,
+            ))
+            ->add('blackPointMess', 'textarea', array(
+                'required' => false,
+            ))
+            ->add('delElemGroupActv', 'checkbox', array(
+                'required' => false,
+            ))
+            ->add('delElemGroupMess', 'textarea', array(
+                'required' => false,
+            ))
+            ->add('decDurationAllElem', 'integer', array(
+                'required' => false,
+            ))
+            ->add('decDurationAllElemActv', 'checkbox', array(
+                'required' => false,
+            ))
+            ->add('decDurationAllElemMess', 'textarea', array(
+                'required' => false,
+            ))
+            ->add('userId', 'integer', array(
+                'required' => false,
+            ))
+            ->add('title', 'text')
+            ->add('visible', 'checkbox', array(
+                'required' => false,
+            ))
+            ->add('moderatorAccepted', 'checkbox', array(
+                'required' => false,
+            ))
+            ->add('theme', 'text')
+            ->add('age', 'integer', array(
+                'required' => false,
+            ))
+            ->add('text', 'text')
+            ->add('date', 'datetime')
+            ->add('image', 'text', array(
+                'required' => false,
+            ))
+            ->add('jumpsToQuestion', 'integer', array(
+                'required' => false,
+            ))
+            ->add('seconds', 'integer', array(
+                'required' => false,
+            ))
+            ->add('questions', 'integer', array(
+                'required' => false,
+            ))
+            ->add('rightAnswer', 'integer', array(
+                'required' => false,
+            ))
         ;
     }
 

@@ -5,7 +5,10 @@ namespace Galaxy\InfoBundle\Entity;
 use Galaxy\InfoBundle\Entity\NotificationTemplate;
 use Doctrine\ORM\Mapping as ORM;
 
-
+/**
+ * @ORM\Entity()
+ * @ORM\HasLifecycleCallbacks()
+ */
 class Message extends NotificationTemplate
 {
     
@@ -290,16 +293,11 @@ class Message extends NotificationTemplate
     }
 
     /**
-     * Set date
-     *
-     * @param \DateTime $date
-     * @return Message
-     */
-    public function setDate($date)
+    * @ORM\PrePersist
+    */
+    public function setDate()
     {
-        $this->date = $date;
-
-        return $this;
+        $this->date = new \DateTime();
     }
 
     /**
