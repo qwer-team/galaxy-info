@@ -58,6 +58,8 @@ class Message extends NotificationTemplate
      * @var \DateTime
      */
     private $date;
+    
+    private $seconds;
 
     /**
      * @var array
@@ -91,7 +93,18 @@ class Message extends NotificationTemplate
     {
         return $this->userId;
     }
+    
+    public function getSeconds()
+    {
+        return $this->seconds;
+    }
 
+    public function setSeconds($seconds)
+    {
+        $this->seconds = $seconds;
+    }
+
+    
     /**
      * Set title
      *
