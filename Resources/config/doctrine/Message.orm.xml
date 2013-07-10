@@ -13,7 +13,6 @@
     <field name="jumpsToQuestion" type="integer" column="jumps_to_question" nullable="true"/>
     <field name="date" type="datetime" column="date" nullable="true"/>
     <field name="seconds" type="integer" column="seconds" nullable="true"/>
-    <field name="questions" type="array" column="questions" nullable="true"/>
     <field name="rightAnswer" type="integer" column="right_answer" nullable="true"/>
     <lifecycle-callbacks>
                 <lifecycle-callback type="prePersist" method="setDate" />

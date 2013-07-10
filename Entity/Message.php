@@ -60,16 +60,8 @@ class Message extends NotificationTemplate
     
     private $seconds;
 
-    /**
-     * @var array
-     */
-    private $questions;
 
-    /**
-     * @var integer
-     */
     private $rightAnswer;
-
     /**
      * Set userId
      *
@@ -306,28 +298,6 @@ class Message extends NotificationTemplate
         return $this->date;
     }
 
-    /**
-     * Set questions
-     *
-     * @param array $questions
-     * @return Message
-     */
-    public function setQuestions($questions)
-    {
-        $this->questions = $questions;
-
-        return $this;
-    }
-
-    /**
-     * Get questions
-     *
-     * @return array 
-     */
-    public function getQuestions()
-    {
-        return $this->questions;
-    }
 
     /**
      * Set rightAnswer

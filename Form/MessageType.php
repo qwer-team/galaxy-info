@@ -157,11 +157,14 @@ class MessageType extends AbstractType
             ->add('seconds', 'integer', array(
                 'required' => false,
             ))
-            ->add('questions', 'integer', array(
-                'required' => false,
-            ))
-            ->add('rightAnswer', 'integer', array(
-                'required' => false,
+            ->add('rightAnswer', 'choice', array(
+                'choices' => array(
+                    '1' => '1',
+                    '2' => '2',
+                    '3' => '3',
+                    '4' => '4',
+                    '5' => '5',
+                )
             ))
         ;
     }
