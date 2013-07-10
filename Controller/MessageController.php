@@ -73,10 +73,14 @@ class MessageController extends FOSRestController
     public function postMessageCreateAction(Request $request)
     {
         $message = new Message();
-        $answer = new Answer();
-        $answer->setAnswer("asdasd");
-        $answer->setMessage($message);
-        $message->addAnswer($answer);
+        $answers = $request->get("answers");
+        if($answers){
+            foreach ($answers as $key => $value){
+                $answer = new Answer();
+                $answer->setMessage($message);
+                $message->addAnswer($answer);
+            }
+        }
         $form = $this->createForm(new MessageType(), $message);
 
         $result = array("result" => "fail");
@@ -85,7 +89,7 @@ class MessageController extends FOSRestController
             $em = $this->getDoctrine()->getEntityManager();
             $em->persist($message);
             $em->flush();
-            $result = array("result" => "success", "message" => $message);
+            $result = array("result" => "success", "message" => $message, "request" => $request);
         } else {
             echo $form->getErrorsAsString();
         }

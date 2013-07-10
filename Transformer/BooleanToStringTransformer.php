@@ -24,6 +24,10 @@ class BooleanToStringTransformer extends BTSTrans
         if ('' === $value) {
             return false;
         }
+        
+        if ('0' === $value) {
+            return false;
+        }
 
         if (!is_string($value)) {
             throw new TransformationFailedException('Expected a string.');
