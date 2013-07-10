@@ -11,13 +11,17 @@ class MessageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('answers', 'collection',  array(
+                    'type' => new AnswerType()
+                )
+             )
             ->add('incPoints', 'integer', array(
                 'required' => false,
             ))
-            ->add('incPointsActv', 'checkbox', array(
+            ->add('incPointsActv', 'gcheckbox', array(
                 'required' => false,
             ))
-            ->add('incPointsProc', 'checkbox', array(
+            ->add('incPointsProc', 'gcheckbox', array(
                 'required' => false,
             ))
             ->add('incPointsMess', 'textarea', array(
@@ -26,7 +30,7 @@ class MessageType extends AbstractType
             ->add('incOwnElem', 'integer', array(
                 'required' => false,
             ))
-            ->add('incOwnElemActv', 'checkbox', array(
+            ->add('incOwnElemActv', 'gcheckbox', array(
                 'required' => false,
             ))
             ->add('incOwnElemMess', 'textarea', array(
@@ -35,7 +39,7 @@ class MessageType extends AbstractType
             ->add('incDurationMinElem', 'integer', array(
                 'required' => false,
             ))
-            ->add('incDurationMinElemActv', 'checkbox', array(
+            ->add('incDurationMinElemActv', 'gcheckbox', array(
                 'required' => false,
             ))
             ->add('incDurationMinElemMess', 'textarea', array(
@@ -44,7 +48,7 @@ class MessageType extends AbstractType
             ->add('incFlipAmount', 'integer', array(
                 'required' => false,
             ))
-            ->add('incFlipAmountActv', 'checkbox', array(
+            ->add('incFlipAmountActv', 'gcheckbox', array(
                 'required' => false,
             ))
             ->add('incFlipAmountMess', 'textarea', array(
@@ -53,7 +57,7 @@ class MessageType extends AbstractType
             ->add('superjumpAmount', 'integer', array(
                 'required' => false,
             ))
-            ->add('superjumpAmountActv', 'checkbox', array(
+            ->add('superjumpAmountActv', 'gcheckbox', array(
                 'required' => false,
             ))
             ->add('superjumpAmountMess', 'textarea', array(
@@ -62,7 +66,7 @@ class MessageType extends AbstractType
             ->add('incDurationAllElem', 'integer', array(
                 'required' => false,
             ))
-            ->add('incDurationAllElemActv', 'checkbox', array(
+            ->add('incDurationAllElemActv', 'gcheckbox', array(
                 'required' => false,
             ))
             ->add('incDurationAllElemMess', 'textarea', array(
@@ -71,10 +75,10 @@ class MessageType extends AbstractType
             ->add('decPoints', 'integer', array(
                 'required' => false,
             ))
-            ->add('decPointsActv', 'checkbox', array(
+            ->add('decPointsActv', 'gcheckbox', array(
                 'required' => false,
             ))
-            ->add('decPointsProc', 'checkbox', array(
+            ->add('decPointsProc', 'gcheckbox', array(
                 'required' => false,
             ))
             ->add('decPointsMess', 'textarea', array(
@@ -83,37 +87,37 @@ class MessageType extends AbstractType
             ->add('decFlipAmount', 'integer', array(
                 'required' => false,
             ))
-            ->add('decFlipAmountActv', 'checkbox', array(
+            ->add('decFlipAmountActv', 'gcheckbox', array(
                 'required' => false,
             ))
             ->add('decFlipAmountMess', 'textarea', array(
                 'required' => false,
             ))
-            ->add('superjumpCancelActv', 'checkbox', array(
+            ->add('superjumpCancelActv', 'gcheckbox', array(
                 'required' => false,
             ))
             ->add('superjumpCancelMess', 'textarea', array(
                 'required' => false,
             ))
-            ->add('activeCancelActv', 'checkbox', array(
+            ->add('activeCancelActv', 'gcheckbox', array(
                 'required' => false,
             ))
             ->add('activeCancelMess', 'textarea', array(
                 'required' => false,
             ))
-            ->add('firstFlipperActv', 'checkbox', array(
+            ->add('firstFlipperActv', 'gcheckbox', array(
                 'required' => false,
             ))
             ->add('firstFlipperMess', 'textarea', array(
                 'required' => false,
             ))
-            ->add('blackPointActv', 'checkbox', array(
+            ->add('blackPointActv', 'gcheckbox', array(
                 'required' => false,
             ))
             ->add('blackPointMess', 'textarea', array(
                 'required' => false,
             ))
-            ->add('delElemGroupActv', 'checkbox', array(
+            ->add('delElemGroupActv', 'gcheckbox', array(
                 'required' => false,
             ))
             ->add('delElemGroupMess', 'textarea', array(
@@ -122,7 +126,7 @@ class MessageType extends AbstractType
             ->add('decDurationAllElem', 'integer', array(
                 'required' => false,
             ))
-            ->add('decDurationAllElemActv', 'checkbox', array(
+            ->add('decDurationAllElemActv', 'gcheckbox', array(
                 'required' => false,
             ))
             ->add('decDurationAllElemMess', 'textarea', array(
@@ -132,10 +136,10 @@ class MessageType extends AbstractType
                 'required' => false,
             ))
             ->add('title', 'text')
-            ->add('visible', 'checkbox', array(
+            ->add('visible', 'gcheckbox', array(
                 'required' => false,
             ))
-            ->add('moderatorAccepted', 'checkbox', array(
+            ->add('moderatorAccepted', 'gcheckbox', array(
                 'required' => false,
             ))
             ->add('theme', 'text')

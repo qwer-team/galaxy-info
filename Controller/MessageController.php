@@ -6,6 +6,7 @@ use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\HttpFoundation\Request;
 use Galaxy\InfoBundle\Entity\Message;
 use Galaxy\InfoBundle\Form\MessageType;
+use Galaxy\InfoBundle\Entity\Answer;
 
 /**
  * Description of MessageController
@@ -72,6 +73,10 @@ class MessageController extends FOSRestController
     public function postMessageCreateAction(Request $request)
     {
         $message = new Message();
+        $answer = new Answer();
+        $answer->setAnswer("asdasd");
+        $answer->setMessage($message);
+        $message->addAnswer($answer);
         $form = $this->createForm(new MessageType(), $message);
 
         $result = array("result" => "fail");
@@ -95,12 +100,13 @@ class MessageController extends FOSRestController
         $message = $repo->find($id);
 
         $form = $this->createForm(new MessageType(), $message);
-        //$form->bindRequest($request);
+        
 
         $result = array("result" => "fail");
         $form->bindRequest($request);
         if ($form->isValid()) {
             $result = array("result" => "success", "request" => $request);
+            
             $this->getDoctrine()->getEntityManager()->flush();
         } else {
             echo $form->getErrorsAsString();
