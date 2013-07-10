@@ -5,6 +5,10 @@ namespace Galaxy\InfoBundle\Entity;
 use Galaxy\InfoBundle\Entity\NotificationTemplate;
 use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @ORM\Entity()
+ * @ORM\HasLifecycleCallbacks()
+ */
 class Message extends NotificationTemplate
 {
     
@@ -60,8 +64,16 @@ class Message extends NotificationTemplate
     
     private $seconds;
 
+    /**
+     * @var array
+     */
+    private $questions;
 
+    /**
+     * @var integer
+     */
     private $rightAnswer;
+
     /**
      * Set userId
      *
@@ -298,6 +310,28 @@ class Message extends NotificationTemplate
         return $this->date;
     }
 
+    /**
+     * Set questions
+     *
+     * @param array $questions
+     * @return Message
+     */
+    public function setQuestions($questions)
+    {
+        $this->questions = $questions;
+
+        return $this;
+    }
+
+    /**
+     * Get questions
+     *
+     * @return array 
+     */
+    public function getQuestions()
+    {
+        return $this->questions;
+    }
 
     /**
      * Set rightAnswer
@@ -322,49 +356,4 @@ class Message extends NotificationTemplate
         return $this->rightAnswer;
     }
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $answers;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->answers = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add answers
-     *
-     * @param \Galaxy\InfoBundle\Entity\Answer $answers
-     * @return Message
-     */
-    public function addAnswer(\Galaxy\InfoBundle\Entity\Answer $answers)
-    {
-        $this->answers[] = $answers;
-
-        return $this;
-    }
-
-    /**
-     * Remove answers
-     *
-     * @param \Galaxy\InfoBundle\Entity\Answer $answers
-     */
-    public function removeAnswer(\Galaxy\InfoBundle\Entity\Answer $answers)
-    {
-        $this->answers->removeElement($answers);
-    }
-
-    /**
-     * Get answers
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getAnswers()
-    {
-        return $this->answers;
-    }
 }
