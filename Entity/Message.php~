@@ -5,10 +5,6 @@ namespace Galaxy\InfoBundle\Entity;
 use Galaxy\InfoBundle\Entity\NotificationTemplate;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity()
- * @ORM\HasLifecycleCallbacks()
- */
 class Message extends NotificationTemplate
 {
     
@@ -32,10 +28,6 @@ class Message extends NotificationTemplate
      */
     private $moderatorAccepted;
 
-    /**
-     * @var string
-     */
-    private $theme;
 
     /**
      * @var integer
@@ -47,10 +39,7 @@ class Message extends NotificationTemplate
      */
     private $text;
 
-    /**
-     * @var string
-     */
-    private $image;
+  
 
     /**
      * @var integer
@@ -63,17 +52,12 @@ class Message extends NotificationTemplate
     private $date;
     
     private $seconds;
+    
+    private $img;
+    
+    private $question;
 
-    /**
-     * @var array
-     */
-    private $questions;
-
-    /**
-     * @var integer
-     */
     private $rightAnswer;
-
     /**
      * Set userId
      *
@@ -97,6 +81,27 @@ class Message extends NotificationTemplate
         return $this->userId;
     }
     
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    public function setImg($img)
+    {
+        $this->img = $img;
+    }
+
+    public function getQuestion()
+    {
+        return $this->question;
+    }
+
+    public function setQuestion($question)
+    {
+        $this->question = $question;
+    }
+
+            
     public function getSeconds()
     {
         return $this->seconds;
@@ -177,28 +182,6 @@ class Message extends NotificationTemplate
         return $this->moderatorAccepted;
     }
 
-    /**
-     * Set theme
-     *
-     * @param string $theme
-     * @return Message
-     */
-    public function setTheme($theme)
-    {
-        $this->theme = $theme;
-
-        return $this;
-    }
-
-    /**
-     * Get theme
-     *
-     * @return string 
-     */
-    public function getTheme()
-    {
-        return $this->theme;
-    }
 
     /**
      * Set age
@@ -246,28 +229,7 @@ class Message extends NotificationTemplate
         return $this->text;
     }
 
-    /**
-     * Set image
-     *
-     * @param string $image
-     * @return Message
-     */
-    public function setImage($image)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return string 
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
+    
 
     /**
      * Set jumpsToQuestion
@@ -310,28 +272,6 @@ class Message extends NotificationTemplate
         return $this->date;
     }
 
-    /**
-     * Set questions
-     *
-     * @param array $questions
-     * @return Message
-     */
-    public function setQuestions($questions)
-    {
-        $this->questions = $questions;
-
-        return $this;
-    }
-
-    /**
-     * Get questions
-     *
-     * @return array 
-     */
-    public function getQuestions()
-    {
-        return $this->questions;
-    }
 
     /**
      * Set rightAnswer
@@ -356,4 +296,77 @@ class Message extends NotificationTemplate
         return $this->rightAnswer;
     }
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $answers;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->answers = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add answers
+     *
+     * @param \Galaxy\InfoBundle\Entity\Answer $answers
+     * @return Message
+     */
+    public function addAnswer(\Galaxy\InfoBundle\Entity\Answer $answers)
+    {
+        $this->answers[] = $answers;
+
+        return $this;
+    }
+
+    /**
+     * Remove answers
+     *
+     * @param \Galaxy\InfoBundle\Entity\Answer $answers
+     */
+    public function removeAnswer(\Galaxy\InfoBundle\Entity\Answer $answers)
+    {
+        $this->answers->removeElement($answers);
+    }
+
+    /**
+     * Get answers
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAnswers()
+    {
+        return $this->answers;
+    }
+    /**
+     * @var \Galaxy\InfoBundle\Entity\ThemeContent
+     */
+    private $theme;
+
+
+    /**
+     * Set theme
+     *
+     * @param \Galaxy\InfoBundle\Entity\ThemeContent $theme
+     * @return Message
+     */
+    public function setTheme(\Galaxy\InfoBundle\Entity\ThemeContent $theme = null)
+    {
+        $this->theme = $theme;
+
+        return $this;
+    }
+
+    /**
+     * Get theme
+     *
+     * @return \Galaxy\InfoBundle\Entity\ThemeContent 
+     */
+    public function getTheme()
+    {
+        return $this->theme;
+    }
 }

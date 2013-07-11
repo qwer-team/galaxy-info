@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 class Message extends NotificationTemplate
 {
-    
+
     /**
      * @var integer
      */
@@ -29,11 +29,6 @@ class Message extends NotificationTemplate
     private $moderatorAccepted;
 
     /**
-     * @var string
-     */
-    private $theme;
-
-    /**
      * @var integer
      */
     private $age;
@@ -44,9 +39,9 @@ class Message extends NotificationTemplate
     private $text;
 
     /**
-     * @var string
+     * @var boolean
      */
-    private $image;
+    private $imageDelete;
 
     /**
      * @var integer
@@ -57,11 +52,11 @@ class Message extends NotificationTemplate
      * @var \DateTime
      */
     private $date;
-    
     private $seconds;
-
-
+    private $img;
+    private $question;
     private $rightAnswer;
+
     /**
      * Set userId
      *
@@ -84,7 +79,27 @@ class Message extends NotificationTemplate
     {
         return $this->userId;
     }
-    
+
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    public function setImg($img)
+    {
+        $this->img = $img;
+    }
+
+    public function getQuestion()
+    {
+        return $this->question;
+    }
+
+    public function setQuestion($question)
+    {
+        $this->question = $question;
+    }
+
     public function getSeconds()
     {
         return $this->seconds;
@@ -95,7 +110,6 @@ class Message extends NotificationTemplate
         $this->seconds = $seconds;
     }
 
-    
     /**
      * Set title
      *
@@ -166,29 +180,6 @@ class Message extends NotificationTemplate
     }
 
     /**
-     * Set theme
-     *
-     * @param string $theme
-     * @return Message
-     */
-    public function setTheme($theme)
-    {
-        $this->theme = $theme;
-
-        return $this;
-    }
-
-    /**
-     * Get theme
-     *
-     * @return string 
-     */
-    public function getTheme()
-    {
-        return $this->theme;
-    }
-
-    /**
      * Set age
      *
      * @param integer $age
@@ -235,29 +226,6 @@ class Message extends NotificationTemplate
     }
 
     /**
-     * Set image
-     *
-     * @param string $image
-     * @return Message
-     */
-    public function setImage($image)
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    /**
-     * Get image
-     *
-     * @return string 
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    /**
      * Set jumpsToQuestion
      *
      * @param integer $jumpsToQuestion
@@ -281,8 +249,8 @@ class Message extends NotificationTemplate
     }
 
     /**
-    * @ORM\PrePersist
-    */
+     * @ORM\PrePersist
+     */
     public function setDate()
     {
         $this->date = new \DateTime();
@@ -297,7 +265,6 @@ class Message extends NotificationTemplate
     {
         return $this->date;
     }
-
 
     /**
      * Set rightAnswer
@@ -367,4 +334,56 @@ class Message extends NotificationTemplate
     {
         return $this->answers;
     }
+
+    /**
+     * @var \Galaxy\InfoBundle\Entity\ThemeContent
+     */
+    private $theme;
+
+    /**
+     * Set theme
+     *
+     * @param \Galaxy\InfoBundle\Entity\ThemeContent $theme
+     * @return Message
+     */
+    public function setTheme(\Galaxy\InfoBundle\Entity\ThemeContent $theme = null)
+    {
+        $this->theme = $theme;
+
+        return $this;
+    }
+
+    /**
+     * Get theme
+     *
+     * @return \Galaxy\InfoBundle\Entity\ThemeContent 
+     */
+    public function getTheme()
+    {
+        return $this->theme;
+    }
+
+    /**
+     * Set imageDelete
+     *
+     * @param boolean $imageDelete
+     * @return Message
+     */
+    public function setImageDelete($imageDelete)
+    {
+        $this->imageDelete = $imageDelete;
+
+        return $this;
+    }
+
+    /**
+     * Get imageDelete
+     *
+     * @return boolean 
+     */
+    public function getImageDelete()
+    {
+        return $this->imageDelete;
+    }
+
 }
