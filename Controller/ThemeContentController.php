@@ -31,6 +31,7 @@ class ThemeContentController extends FOSRestController
         $view = $this->view($themes);
         return $this->handleView($view);
     }
+    
 
     /**
      * 

@@ -9,6 +9,7 @@ use Galaxy\InfoBundle\Form\MessageType;
 use Galaxy\InfoBundle\Entity\Answer;
 use Galaxy\InfoBundle\Entity\ThemeContent;
 use Galaxy\InfoBundle\Form\ThemeContentType;
+use Galaxy\InfoBundle\Entity\NotificationTemplate;
 
 /**
  * Description of MessageController
@@ -22,6 +23,17 @@ class MessageController extends FOSRestController
     {
         $repo = $this->getMessageRepo();
         $message = $repo->find($id);
+
+        $view = $this->view($message);
+        return $this->handleView($view);
+    }
+    
+    public function getMessageLastIdAction()
+    {
+        $repo = $this->getMessageRepo();
+        $qb = $repo->createQueryBuilder('mes');
+        $qb->select('MAX(mes.id)');
+        $message = $qb->getQuery()->getSingleScalarResult();
 
         $view = $this->view($message);
         return $this->handleView($view);
@@ -84,7 +96,6 @@ class MessageController extends FOSRestController
             }
         }
         $form = $this->createForm(new MessageType(), $message);
-
         $result = array("result" => "fail", "request" => $request);
         $form->bind($request);
         if ($form->isValid()) {
