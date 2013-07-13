@@ -8,6 +8,9 @@ use Galaxy\InfoBundle\Entity\Message;
 use Galaxy\InfoBundle\Form\MessageType;
 use Galaxy\InfoBundle\Form\UserDataType;
 use Galaxy\InfoBundle\Entity\Answer;
+use Galaxy\InfoBundle\Entity\ThemeContent;
+use Galaxy\InfoBundle\Form\ThemeContentType;
+use Galaxy\InfoBundle\Entity\NotificationTemplate;
 
 /**
  * Description of MessageController
@@ -21,6 +24,17 @@ class MessageController extends FOSRestController
     {
         $repo = $this->getMessageRepo();
         $message = $repo->find($id);
+
+        $view = $this->view($message);
+        return $this->handleView($view);
+    }
+    
+    public function getMessageLastIdAction()
+    {
+        $repo = $this->getMessageRepo();
+        $qb = $repo->createQueryBuilder('mes');
+        $qb->select('MAX(mes.id)');
+        $message = $qb->getQuery()->getSingleScalarResult();
 
         $view = $this->view($message);
         return $this->handleView($view);
@@ -74,18 +88,17 @@ class MessageController extends FOSRestController
     public function postMessageCreateAction(Request $request)
     {
         $message = new Message();
-        $answers = $request->get("answers");
-        if($answers){
-            foreach ($answers as $key => $value){
+        $answers = $request->get('answers');
+        if ($answers) {
+            foreach ($answers as $key => $value) {
                 $answer = new Answer();
                 $answer->setMessage($message);
                 $message->addAnswer($answer);
             }
         }
         $form = $this->createForm(new MessageType(), $message);
-
-        $result = array("result" => "fail");
-        $form->bindRequest($request);
+        $result = array("result" => "fail", "request" => $request);
+        $form->bind($request);
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getEntityManager();
             $em->persist($message);
@@ -105,13 +118,13 @@ class MessageController extends FOSRestController
         $message = $repo->find($id);
 
         $form = $this->createForm(new MessageType(), $message);
-        
+
 
         $result = array("result" => "fail");
         $form->bindRequest($request);
         if ($form->isValid()) {
             $result = array("result" => "success", "request" => $request);
-            
+
             $this->getDoctrine()->getEntityManager()->flush();
         } else {
             echo $form->getErrorsAsString();

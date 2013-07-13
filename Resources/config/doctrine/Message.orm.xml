@@ -4,12 +4,13 @@
     
     <field name="userId" type="integer" column="user_id" nullable="true"/>
     <field name="title" type="string" column="title" length="255" nullable="true"/>
+    <field name="img" type="string" column="img" length="255" nullable="true"/>
+    <field name="question" type="string" column="question" length="255" nullable="true"/>
     <field name="visible" type="boolean" column="visible" nullable="true"/>
     <field name="moderatorAccepted" type="boolean" column="moderator_accepted" nullable="true"/>
-    <field name="theme" type="string" column="theme" length="255" nullable="true"/>
     <field name="age" type="integer" column="age" nullable="true"/>
     <field name="text" type="text" column="text" nullable="true"/>
-    <field name="image" type="string" column="image" length="255" nullable="true"/>
+    <field name="imageDelete" type="boolean" column="image_delete" nullable="true"/>
     <field name="jumpsToQuestion" type="integer" column="jumps_to_question" nullable="true"/>
     <field name="date" type="datetime" column="date" nullable="true"/>
     <field name="seconds" type="integer" column="seconds" nullable="true"/>
@@ -22,5 +23,11 @@
             <cascade-all/>
         </cascade>
     </one-to-many>
+    <many-to-one target-entity="ThemeContent" field="theme">
+        <join-column name="theme_id" referenced-column-name="id"/>
+        <cascade>
+            <cascade-persist/>
+        </cascade>
+    </many-to-one>
   </entity>
 </doctrine-mapping>

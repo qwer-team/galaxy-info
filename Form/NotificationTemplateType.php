@@ -6,18 +6,12 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class MessageType extends AbstractType
+class NotificationTemplateType extends AbstractType
 {
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-                ->add('answers', 'collection', array(
-                    'type' => new AnswerType()
-                        )
-                )
-                ->add('question', 'textarea')
-                ->add('incPoints', 'integer', array(
+            ->add('incPoints', 'integer', array(
                     'required' => false,
                 ))
                 ->add('incPointsActv', 'gcheckbox', array(
@@ -134,56 +128,13 @@ class MessageType extends AbstractType
                 ->add('decDurationAllElemMess', 'textarea', array(
                     'required' => false,
                 ))
-                ->add('userId', 'integer', array(
-                    'required' => false,
-                ))
-                ->add('title', 'text')
-                ->add('visible', 'gcheckbox', array(
-                    'required' => false,
-                ))
-                ->add('moderatorAccepted', 'gcheckbox', array(
-                    'required' => false,
-                ))
-                ->add('theme')
-                ->add('age', 'choice', array(
-                    'choices' => array(
-                        '12' => 'до 12',
-                        '16' => 'до 16',
-                        '18' => 'до 18',
-                        '22' => 'до 22',
-                        '23' => 'старше 22',
-                    )
-                ))
-                ->add('text', 'text')
-                ->add('date', 'datetime')
-                ->add('img', 'text', array(
-                    'required' => false,
-                ))
-                ->add('jumpsToQuestion', 'integer', array(
-                    'required' => false,
-                ))
-                ->add('seconds', 'integer', array(
-                    'required' => false,
-                ))
-                ->add('rightAnswer', 'choice', array(
-                    'choices' => array(
-                        '1' => '1',
-                        '2' => '2',
-                        '3' => '3',
-                        '4' => '4',
-                        '5' => '5',
-                    )
-                ))
-                ->add('imageDelete', 'gcheckbox', array(
-                    'required' => false,
-                ))
         ;
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Galaxy\InfoBundle\Entity\Message',
+            'data_class' => 'Galaxy\InfoBundle\Entity\NotificationTemplate',
             'csrf_protection' => false,
         ));
     }
@@ -192,5 +143,4 @@ class MessageType extends AbstractType
     {
         return '';
     }
-
 }
