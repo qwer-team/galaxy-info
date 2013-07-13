@@ -134,16 +134,16 @@ class MessageController extends FOSRestController
         return $repo;
     }
 
-    public function getFindMessageAction(Request $request)
+    public function postFindMessageAction(Request $request)
     {
         $form = $this->createForm(new UserDataType());
 
         $form->bind($request);
         $result = array("result" => "fail");
-        //if ($form->isValid()) {
+        if ($form->isValid()) {
             $messageFinder = $this->get('galaxy.message.finder');
             $result = $messageFinder->findMessage($form->getData());
-        //}
+        }
 
         $view = $this->view($result);
         return $this->handleView($view);

@@ -3,23 +3,38 @@
 namespace Galaxy\InfoBundle\Service;
 
 use Galaxy\InfoBundle\Entity\UserData;
+use Doctrine\ORM\Query\ResultSetMapping;
 
 class MessageFinder
 {
 
-    private $entityManager;
+    /**
+     *
+     * @var \Doctrine\ORM\EntityManager 
+     */
+    private $em;
 
     public function findMessage(UserData $data)
     {
+        $sql = "SELECT id
+                FROM galaxy_message
+                WHERE age <= {$data->getAge()}
+                AND visible = 1
+                AND moderator_accepted = 1
+                ORDER BY RAND()
+                LIMIT 1
+                ";
+        $rsm = new ResultSetMapping();
+        $res = $this->em->getConnection()->executeQuery($sql)->fetchAll();
         $repo = $this->getMessageRepo();
 
-        $message = $repo->find(1);
+        $message = $repo->find($res[0]['id']);
         return $message;
     }
 
     private function getMessageRepo()
     {
-        $em = $this->entityManager;
+        $em = $this->em;
         $namespace = "GalaxyInfoBundle:Message";
         $repo = $em->getRepository($namespace);
 
@@ -28,7 +43,7 @@ class MessageFinder
 
     public function setEntityManager($entityManager)
     {
-        $this->entityManager = $entityManager;
+        $this->em = $entityManager;
     }
 
 }
