@@ -18,17 +18,23 @@ class SearchType extends AbstractType
                 ->add('userId', 'integer', array(
                     'required' => false,
                 ))
-                ->add('theme', 'integer', array(
-                    'required' => false,
-                ))
+                ->add('theme')
                 ->add('title', 'text', array(
                     'required' => false,
                 ))
-                ->add('visible', 'gcheckbox', array(
+                ->add('visible', 'choice', array(
                     'required' => false,
+                    'choices' => array(
+                        '0' => 'Невидим',
+                        '1' => 'Видим',
+                    )
                 ))
-                ->add('moderatorAccepted', 'gcheckbox', array(
+                ->add('moderatorAccepted', 'choice', array(
                     'required' => false,
+                    'choices' => array(
+                        '0' => 'Не принято',
+                        '1' => 'Принято',
+                    )
                 ))
                ->add('age', 'choice', array(
                     'choices' => array(

@@ -27,11 +27,11 @@ class MessageRepository extends EntityRepository
             );
             $qb->setParameter('text', "%$text%");
         }
-        if ($data->getVisible()) {
+        if ($data->getVisible() !== NULL) {
             $qb->where('mes.visible = :visible');
             $qb->setParameter('visible', $data->getVisible());
         }
-        if ($data->getModeratorAccepted()) {
+        if ($data->getModeratorAccepted() !== NULL) {
             $qb->andWhere('mes.moderatorAccepted = :moderatorAccepted');
             $qb->setParameter('moderatorAccepted', $data->getModeratorAccepted());
         }
@@ -74,11 +74,11 @@ class MessageRepository extends EntityRepository
             );
             $qb->setParameter('text', "%$text%");
         }
-        if ($data->getVisible()) {
+        if ($data->getVisible() !== NULL) {
             $qb->where('mes.visible = :visible');
             $qb->setParameter('visible', $data->getVisible());
         }
-        if ($data->getModeratorAccepted()) {
+        if ($data->getModeratorAccepted() !== NULL) {
             $qb->andWhere('mes.moderatorAccepted = :moderatorAccepted');
             $qb->setParameter('moderatorAccepted', $data->getModeratorAccepted());
         }
