@@ -10,6 +10,8 @@ use Galaxy\InfoBundle\Entity\Answer;
 use Galaxy\InfoBundle\Entity\ThemeContent;
 use Galaxy\InfoBundle\Form\ThemeContentType;
 use Galaxy\InfoBundle\Entity\NotificationTemplate;
+use Galaxy\InfoBundle\Form\Filter\SearchType;
+use Galaxy\InfoBundle\Entity\Filter\Search;
 
 /**
  * Description of MessageController
@@ -27,7 +29,7 @@ class MessageController extends FOSRestController
         $view = $this->view($message);
         return $this->handleView($view);
     }
-    
+
     public function getMessageLastIdAction()
     {
         $repo = $this->getMessageRepo();
@@ -61,25 +63,34 @@ class MessageController extends FOSRestController
         return $this->handleView($view);
     }
 
-    public function getMessagesLengthAction($page, $length)
+    public function postMessagesLengthAction(Request $request, $page, $length)
     {
+        $search = new Search();
+        $themeRepo = $this->getThemeRepo();
         $repo = $this->getMessageRepo();
-        $qb = $repo->createQueryBuilder('mes');
-        $qb->orderBy('mes.id', 'DESC');
-        $firstResult = $length * ($page - 1);
-        $qb->setFirstResult($firstResult)->setMaxResults($length);
-        $result = $qb->getQuery()->execute();
-
+        $theme = ($request->get('theme')) ? $themeRepo->find($request->get('theme')) : null;
+        $form = $this->createForm(new SearchType(), $search);
+        $form->bind($request);
+        if ($form->isValid()) {
+            $data = $form->getData();
+            $result = $repo->getMessagesList($data, $theme, $page, $length);
+        }
         $view = $this->view($result);
         return $this->handleView($view);
     }
 
-    public function getMessageCountAction()
+    public function postMessageCountAction(Request $request)
     {
+        $search = new Search();
+        $themeRepo = $this->getThemeRepo();
         $repo = $this->getMessageRepo();
-        $qb = $repo->createQueryBuilder('mes');
-        $qb->select("count(mes)");
-        $result = $qb->getQuery()->getSingleScalarResult();
+        $theme = ($request->get('theme')) ? $themeRepo->find($request->get('theme')) : null;
+        $form = $this->createForm(new SearchType(), $search);
+        $form->bind($request);
+        if ($form->isValid()) {
+            $data = $form->getData();
+            $result = $repo->getMessagesCount($data, $theme);
+        }
         $view = $this->view($result);
         return $this->handleView($view);
     }
@@ -141,6 +152,19 @@ class MessageController extends FOSRestController
     {
         $em = $this->getDoctrine()->getEntityManager();
         $namespace = "GalaxyInfoBundle:Message";
+        $repo = $em->getRepository($namespace);
+
+        return $repo;
+    }
+
+    /**
+     * 
+     * @return \Doctrine\ORM\EntityRepository
+     */
+    private function getThemeRepo()
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $namespace = "GalaxyInfoBundle:ThemeContent";
         $repo = $em->getRepository($namespace);
 
         return $repo;
