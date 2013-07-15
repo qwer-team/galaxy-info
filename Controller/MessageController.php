@@ -6,6 +6,7 @@ use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\HttpFoundation\Request;
 use Galaxy\InfoBundle\Entity\Message;
 use Galaxy\InfoBundle\Form\MessageType;
+use Galaxy\InfoBundle\Form\UserDataType;
 use Galaxy\InfoBundle\Entity\Answer;
 use Galaxy\InfoBundle\Entity\ThemeContent;
 use Galaxy\InfoBundle\Form\ThemeContentType;
@@ -157,6 +158,7 @@ class MessageController extends FOSRestController
         return $repo;
     }
 
+
     /**
      * 
      * @return \Doctrine\ORM\EntityRepository
@@ -170,4 +172,22 @@ class MessageController extends FOSRestController
         return $repo;
     }
 
+
+
+    public function postFindMessageAction(Request $request)
+    {
+        $form = $this->createForm(new UserDataType());
+
+        $form->bind($request);
+        $result = array("result" => "fail");
+        if ($form->isValid()) {
+            $messageFinder = $this->get('galaxy.message.finder');
+            $result = $messageFinder->findMessage($form->getData());
+        }
+
+        $view = $this->view($result);
+        return $this->handleView($view);
+    }
+
 }
+
