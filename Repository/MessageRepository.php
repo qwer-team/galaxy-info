@@ -52,8 +52,8 @@ class MessageRepository extends EntityRepository
             $qb->setParameter('id', $data->getMessageId());
         }
         $qb->orderBy('mes.id', 'DESC');
-        $firstResult = $length * ($page - 1);
-        $qb->setFirstResult($firstResult)->setMaxResults($length);
+        /*$firstResult = $length * ($page - 1);
+        $qb->setFirstResult($firstResult)->setMaxResults($length);*/
         $result = $qb->getQuery()->execute();
 
         return $result;
@@ -62,7 +62,7 @@ class MessageRepository extends EntityRepository
     public function getMessagesCount(Search $data, $theme)
     {
         $qb = $this->createQueryBuilder('mes');
-        $qb->select('COUNT(mes)');
+        
         if ($data->getText() != '') {
             $qb->join("mes.answers", "answers");
             $text = $data->getText();
@@ -99,9 +99,10 @@ class MessageRepository extends EntityRepository
             $qb->setParameter('id', $data->getMessageId());
         }
         $qb->orderBy('mes.id', 'DESC');
-        $result = $qb->getQuery()->getSingleScalarResult();
+        
+        $result = $qb->getQuery()->execute();
 
-        return $result;
+        return count($result);
     }
 
 }

@@ -4,7 +4,7 @@
     <id name="id" type="integer" column="id">
       <generator strategy="AUTO"/>
     </id>
-    <field name="answer" type="string" column="answer" length="255"/>
+    <field name="answer" type="string" column="answer" length="255" nullable="true"/>
     <many-to-one target-entity="Message" field="message">
         <join-column name="message_id" referenced-column-name="id"/>
     </many-to-one>

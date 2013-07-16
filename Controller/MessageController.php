@@ -99,13 +99,10 @@ class MessageController extends FOSRestController
     public function postMessageCreateAction(Request $request)
     {
         $message = new Message();
-        $answers = $request->get('answers');
-        if ($answers) {
-            foreach ($answers as $key => $value) {
-                $answer = new Answer();
-                $answer->setMessage($message);
-                $message->addAnswer($answer);
-            }
+        for ($i = 0; $i < 5; $i++) {
+            $answer = new Answer();
+            $answer->setMessage($message);
+            $message->addAnswer($answer);
         }
         $form = $this->createForm(new MessageType(), $message);
         $result = array("result" => "fail", "request" => $request);
@@ -158,7 +155,6 @@ class MessageController extends FOSRestController
         return $repo;
     }
 
-
     /**
      * 
      * @return \Doctrine\ORM\EntityRepository
@@ -171,8 +167,6 @@ class MessageController extends FOSRestController
 
         return $repo;
     }
-
-
 
     public function postFindMessageAction(Request $request)
     {
