@@ -52,8 +52,8 @@ class MessageRepository extends EntityRepository
             $qb->setParameter('id', $data->getMessageId());
         }
         $qb->orderBy('mes.id', 'DESC');
-        /*$firstResult = $length * ($page - 1);
-        $qb->setFirstResult($firstResult)->setMaxResults($length);*/
+        $firstResult = $length * ($page - 1);
+        $qb->setFirstResult($firstResult)->setMaxResults($length);
         $result = $qb->getQuery()->execute();
 
         return $result;

@@ -6,8 +6,8 @@
     <field name="title" type="string" column="title" length="255" nullable="true"/>
     <field name="img" type="string" column="img" length="255" nullable="true"/>
     <field name="question" type="string" column="question" length="255" nullable="true"/>
-    <field name="visible" type="boolean" column="visible" nullable="true"/>
-    <field name="moderatorAccepted" type="boolean" column="moderator_accepted" nullable="true"/>
+    <field name="visible" type="boolean" column="visible" />
+    <field name="moderatorAccepted" type="boolean" column="moderator_accepted"/>
     <field name="age" type="integer" column="age" nullable="true"/>
     <field name="text" type="text" column="text" nullable="true"/>
     <field name="imageDelete" type="boolean" column="image_delete" nullable="true"/>
