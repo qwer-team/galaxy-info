@@ -51,5 +51,9 @@
         <property name="decDurationAllElem" serialized-name="decDurationAllElem"/>
         <property name="decDurationAllElemActv" serialized-name="decDurationAllElemActv"/>
         <property name="decDurationAllElemMess" serialized-name="decDurationAllElemMess"/>
+       
+        <property name="higherFlipperJumps" serialized-name="higherFlipperJumps"/>
+        <property name="lowerFlipperJumps" serialized-name="lowerFlipperJumps"/>
+        <property name="firstFlipperJumps" serialized-name="firstFlipperJumps"/>
     </class>
 </serializer>

@@ -53,6 +53,11 @@
     <field name="delElemGroupActv" type="boolean" column="del_elem_group_actv" nullable="true"/>
     <field name="delElemGroupMess" type="text" column="del_elem_group_mess" nullable="true"/>
     
+    <field name="higherFlipperJumps" type="integer" column="higher_flipper_jumps" nullable="true"/>
+    <field name="lowerFlipperJumps" type="integer" column="lower_flipper_jumps" nullable="true"/>
+    <field name="firstFlipperJumps" type="integer" column="first_flipper_jumps" nullable="true"/>
+    
+     
     <field name="decDurationAllElem" type="integer" column="dec_duration_all_elem" nullable="true"/>
     <field name="decDurationAllElemActv" type="boolean" column="dec_duration_all_elem_actv" nullable="true"/>
     <field name="decDurationAllElemMess" type="text" column="dec_duration_all_elem_mess" nullable="true"/>

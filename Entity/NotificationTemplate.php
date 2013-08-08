@@ -53,6 +53,10 @@ class NotificationTemplate
     protected $decDurationAllElem;
     protected $decDurationAllElemActv;
     protected $decDurationAllElemMess;
+    protected $higherFlipperJumps;
+    protected $lowerFlipperJumps;
+    protected $firstFlipperJumps;
+    
 
     /**
      * Get id
@@ -453,5 +457,31 @@ class NotificationTemplate
     {
         $this->decDurationAllElemMess = $decDurationAllElemMess;
     }
+    
+    public function getHigherFlipperJumps() {
+        return $this->higherFlipperJumps;
+    }
+
+    public function setHigherFlipperJumps($higherFlipperJumps) {
+        $this->higherFlipperJumps = $higherFlipperJumps;
+    }
+
+    public function getLowerFlipperJumps() {
+        return $this->lowerFlipperJumps;
+    }
+
+    public function setLowerFlipperJumps($lowerFlipperJumps) {
+        $this->lowerFlipperJumps = $lowerFlipperJumps;
+    }
+
+    public function getFirstFlipperJumps() {
+        return $this->firstFlipperJumps;
+    }
+
+    public function setFirstFlipperJumps($firstFlipperJumps) {
+        $this->firstFlipperJumps = $firstFlipperJumps;
+    }
+
+
 
 }
