@@ -75,6 +75,8 @@ class MessageController extends FOSRestController
         if ($form->isValid()) {
             $data = $form->getData();
             $result = $repo->getMessagesList($data, $theme, $page, $length);
+        }else {
+            echo $form->getErrorsAsString();
         }
         $view = $this->view($result);
         return $this->handleView($view);
@@ -91,6 +93,8 @@ class MessageController extends FOSRestController
         if ($form->isValid()) {
             $data = $form->getData();
             $result = $repo->getMessagesCount($data, $theme);
+        }else {
+            echo $form->getErrorsAsString();
         }
         $view = $this->view($result);
         return $this->handleView($view);
