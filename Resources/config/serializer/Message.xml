@@ -5,6 +5,8 @@
         <property name="moderatorAccepted" serialized-name="moderatorAccepted"/>
         <property name="jumpsToQuestion" serialized-name="jumpsToQuestion"/>
         <property name="rightAnswer" serialized-name="rightAnswer"/>
-        <property name="imageDelete" serialized-name="imageDelete"/>
+        <property name="imageDelete1" serialized-name="imageDelete1"/>
+        <property name="imageDelete2" serialized-name="imageDelete2"/>
+        <property name="imageDelete3" serialized-name="imageDelete3"/>
     </class>
 </serializer>

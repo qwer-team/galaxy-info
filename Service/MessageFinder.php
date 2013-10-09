@@ -28,7 +28,7 @@ class MessageFinder
         $res = $this->em->getConnection()->executeQuery($sql)->fetchAll();
         $repo = $this->getMessageRepo();
 
-        $message = $repo->find($res[0]['id']);
+        $message = $repo->find(72);//$repo->find($res[0]['id']);
         return $message;
     }
 

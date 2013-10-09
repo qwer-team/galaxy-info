@@ -5,8 +5,7 @@ namespace Galaxy\InfoBundle\Entity;
 use Galaxy\InfoBundle\Entity\NotificationTemplate;
 use Doctrine\ORM\Mapping as ORM;
 
-class Message extends NotificationTemplate
-{
+class Message extends NotificationTemplate {
 
     /**
      * @var integer
@@ -41,7 +40,17 @@ class Message extends NotificationTemplate
     /**
      * @var boolean
      */
-    private $imageDelete;
+    private $imageDelete1;
+
+    /**
+     * @var boolean
+     */
+    private $imageDelete2;
+
+    /**
+     * @var boolean
+     */
+    private $imageDelete3;
 
     /**
      * @var integer
@@ -53,7 +62,9 @@ class Message extends NotificationTemplate
      */
     private $date;
     private $seconds;
-    private $img;
+    private $img1;
+    private $img2;
+    private $img3;
     private $question;
     private $rightAnswer;
 
@@ -63,8 +74,7 @@ class Message extends NotificationTemplate
      * @param integer $userId
      * @return Message
      */
-    public function setUserId($userId)
-    {
+    public function setUserId($userId) {
         $this->userId = $userId;
 
         return $this;
@@ -75,38 +85,23 @@ class Message extends NotificationTemplate
      *
      * @return integer 
      */
-    public function getUserId()
-    {
+    public function getUserId() {
         return $this->userId;
     }
 
-    public function getImg()
-    {
-        return $this->img;
-    }
-
-    public function setImg($img)
-    {
-        $this->img = $img;
-    }
-
-    public function getQuestion()
-    {
+    public function getQuestion() {
         return $this->question;
     }
 
-    public function setQuestion($question)
-    {
+    public function setQuestion($question) {
         $this->question = $question;
     }
 
-    public function getSeconds()
-    {
+    public function getSeconds() {
         return $this->seconds;
     }
 
-    public function setSeconds($seconds)
-    {
+    public function setSeconds($seconds) {
         $this->seconds = $seconds;
     }
 
@@ -116,8 +111,7 @@ class Message extends NotificationTemplate
      * @param string $title
      * @return Message
      */
-    public function setTitle($title)
-    {
+    public function setTitle($title) {
         $this->title = $title;
 
         return $this;
@@ -128,8 +122,7 @@ class Message extends NotificationTemplate
      *
      * @return string 
      */
-    public function getTitle()
-    {
+    public function getTitle() {
         return $this->title;
     }
 
@@ -139,8 +132,7 @@ class Message extends NotificationTemplate
      * @param boolean $visible
      * @return Message
      */
-    public function setVisible($visible)
-    {
+    public function setVisible($visible) {
         $this->visible = $visible;
 
         return $this;
@@ -151,8 +143,7 @@ class Message extends NotificationTemplate
      *
      * @return boolean 
      */
-    public function getVisible()
-    {
+    public function getVisible() {
         return $this->visible;
     }
 
@@ -162,8 +153,7 @@ class Message extends NotificationTemplate
      * @param boolean $moderatorAccepted
      * @return Message
      */
-    public function setModeratorAccepted($moderatorAccepted)
-    {
+    public function setModeratorAccepted($moderatorAccepted) {
         $this->moderatorAccepted = $moderatorAccepted;
 
         return $this;
@@ -174,8 +164,7 @@ class Message extends NotificationTemplate
      *
      * @return boolean 
      */
-    public function getModeratorAccepted()
-    {
+    public function getModeratorAccepted() {
         return $this->moderatorAccepted;
     }
 
@@ -185,8 +174,7 @@ class Message extends NotificationTemplate
      * @param integer $age
      * @return Message
      */
-    public function setAge($age)
-    {
+    public function setAge($age) {
         $this->age = $age;
 
         return $this;
@@ -197,8 +185,7 @@ class Message extends NotificationTemplate
      *
      * @return integer 
      */
-    public function getAge()
-    {
+    public function getAge() {
         return $this->age;
     }
 
@@ -208,8 +195,7 @@ class Message extends NotificationTemplate
      * @param string $text
      * @return Message
      */
-    public function setText($text)
-    {
+    public function setText($text) {
         $this->text = $text;
 
         return $this;
@@ -220,8 +206,7 @@ class Message extends NotificationTemplate
      *
      * @return string 
      */
-    public function getText()
-    {
+    public function getText() {
         return $this->text;
     }
 
@@ -231,8 +216,7 @@ class Message extends NotificationTemplate
      * @param integer $jumpsToQuestion
      * @return Message
      */
-    public function setJumpsToQuestion($jumpsToQuestion)
-    {
+    public function setJumpsToQuestion($jumpsToQuestion) {
         $this->jumpsToQuestion = $jumpsToQuestion;
 
         return $this;
@@ -243,16 +227,14 @@ class Message extends NotificationTemplate
      *
      * @return integer 
      */
-    public function getJumpsToQuestion()
-    {
+    public function getJumpsToQuestion() {
         return $this->jumpsToQuestion;
     }
 
     /**
      * @ORM\PrePersist
      */
-    public function setDate()
-    {
+    public function setDate() {
         $this->date = new \DateTime();
     }
 
@@ -261,8 +243,7 @@ class Message extends NotificationTemplate
      *
      * @return \DateTime 
      */
-    public function getDate()
-    {
+    public function getDate() {
         return $this->date;
     }
 
@@ -272,8 +253,7 @@ class Message extends NotificationTemplate
      * @param integer $rightAnswer
      * @return Message
      */
-    public function setRightAnswer($rightAnswer)
-    {
+    public function setRightAnswer($rightAnswer) {
         $this->rightAnswer = $rightAnswer;
 
         return $this;
@@ -284,8 +264,7 @@ class Message extends NotificationTemplate
      *
      * @return integer 
      */
-    public function getRightAnswer()
-    {
+    public function getRightAnswer() {
         return $this->rightAnswer;
     }
 
@@ -297,8 +276,7 @@ class Message extends NotificationTemplate
     /**
      * Constructor
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->answers = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -308,8 +286,7 @@ class Message extends NotificationTemplate
      * @param \Galaxy\InfoBundle\Entity\Answer $answers
      * @return Message
      */
-    public function addAnswer(\Galaxy\InfoBundle\Entity\Answer $answers)
-    {
+    public function addAnswer(\Galaxy\InfoBundle\Entity\Answer $answers) {
         $this->answers[] = $answers;
 
         return $this;
@@ -320,8 +297,7 @@ class Message extends NotificationTemplate
      *
      * @param \Galaxy\InfoBundle\Entity\Answer $answers
      */
-    public function removeAnswer(\Galaxy\InfoBundle\Entity\Answer $answers)
-    {
+    public function removeAnswer(\Galaxy\InfoBundle\Entity\Answer $answers) {
         $this->answers->removeElement($answers);
     }
 
@@ -330,8 +306,7 @@ class Message extends NotificationTemplate
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getAnswers()
-    {
+    public function getAnswers() {
         return $this->answers;
     }
 
@@ -346,8 +321,7 @@ class Message extends NotificationTemplate
      * @param \Galaxy\InfoBundle\Entity\ThemeContent $theme
      * @return Message
      */
-    public function setTheme(\Galaxy\InfoBundle\Entity\ThemeContent $theme = null)
-    {
+    public function setTheme(\Galaxy\InfoBundle\Entity\ThemeContent $theme = null) {
         $this->theme = $theme;
 
         return $this;
@@ -358,32 +332,56 @@ class Message extends NotificationTemplate
      *
      * @return \Galaxy\InfoBundle\Entity\ThemeContent 
      */
-    public function getTheme()
-    {
+    public function getTheme() {
         return $this->theme;
     }
 
-    /**
-     * Set imageDelete
-     *
-     * @param boolean $imageDelete
-     * @return Message
-     */
-    public function setImageDelete($imageDelete)
-    {
-        $this->imageDelete = $imageDelete;
-
-        return $this;
+    public function getImageDelete1() {
+        return $this->imageDelete1;
     }
 
-    /**
-     * Get imageDelete
-     *
-     * @return boolean 
-     */
-    public function getImageDelete()
-    {
-        return $this->imageDelete;
+    public function setImageDelete1($imageDelete1) {
+        $this->imageDelete1 = $imageDelete1;
+    }
+
+    public function getImageDelete2() {
+        return $this->imageDelete2;
+    }
+
+    public function setImageDelete2($imageDelete2) {
+        $this->imageDelete2 = $imageDelete2;
+    }
+
+    public function getImageDelete3() {
+        return $this->imageDelete3;
+    }
+
+    public function setImageDelete3($imageDelete3) {
+        $this->imageDelete3 = $imageDelete3;
+    }
+
+    public function getImg1() {
+        return $this->img1;
+    }
+
+    public function setImg1($img1) {
+        $this->img1 = $img1;
+    }
+
+    public function getImg2() {
+        return $this->img2;
+    }
+
+    public function setImg2($img2) {
+        $this->img2 = $img2;
+    }
+
+    public function getImg3() {
+        return $this->img3;
+    }
+
+    public function setImg3($img3) {
+        $this->img3 = $img3;
     }
 
 }

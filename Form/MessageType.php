@@ -156,7 +156,13 @@ class MessageType extends AbstractType
                 ))
                 ->add('text', 'text')
                 ->add('date', 'datetime')
-                ->add('img', 'text', array(
+                ->add('img1', 'text', array(
+                    'required' => false,
+                ))
+                ->add('img2', 'text', array(
+                    'required' => false,
+                ))
+                ->add('img3', 'text', array(
                     'required' => false,
                 ))
                 ->add('jumpsToQuestion', 'integer', array(
@@ -174,7 +180,13 @@ class MessageType extends AbstractType
                         '5' => '5',
                     )
                 ))
-                ->add('imageDelete', 'gcheckbox', array(
+                ->add('imageDelete1', 'gcheckbox', array(
+                    'required' => false,
+                ))
+                ->add('imageDelete2', 'gcheckbox', array(
+                    'required' => false,
+                ))
+                ->add('imageDelete3', 'gcheckbox', array(
                     'required' => false,
                 ))
         ;

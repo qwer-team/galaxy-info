@@ -4,13 +4,17 @@
     
     <field name="userId" type="integer" column="user_id" nullable="true"/>
     <field name="title" type="string" column="title" length="255" nullable="true"/>
-    <field name="img" type="string" column="img" length="255" nullable="true"/>
+    <field name="img1" type="string" column="img1" length="255" nullable="true"/>
+    <field name="img2" type="string" column="img2" length="255" nullable="true"/>
+    <field name="img3" type="string" column="img3" length="255" nullable="true"/>
     <field name="question" type="string" column="question" length="255" nullable="true"/>
     <field name="visible" type="boolean" column="visible" />
     <field name="moderatorAccepted" type="boolean" column="moderator_accepted"/>
     <field name="age" type="integer" column="age" nullable="true"/>
     <field name="text" type="text" column="text" nullable="true"/>
-    <field name="imageDelete" type="boolean" column="image_delete" nullable="true"/>
+    <field name="imageDelete1" type="boolean" column="image_delete1" nullable="true"/>
+    <field name="imageDelete2" type="boolean" column="image_delete2" nullable="true"/>
+    <field name="imageDelete3" type="boolean" column="image_delete3" nullable="true"/>
     <field name="jumpsToQuestion" type="integer" column="jumps_to_question" nullable="true"/>
     <field name="date" type="datetime" column="date" nullable="true"/>
     <field name="seconds" type="integer" column="seconds" nullable="true"/>
